@@ -1,5 +1,7 @@
 module.exports = function (poppins) {
-  poppins.theUsualPlease();
+  poppins.couldYouPlease('poppins-pr-checklist');
+  poppins.couldYouPlease('poppins-check-cla');
+  poppins.couldYouPlease('poppins-check-commit');
 
   poppins.config = {
     // Github repo to watch
