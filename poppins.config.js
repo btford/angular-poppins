@@ -1,7 +1,39 @@
 module.exports = function (poppins) {
+
+  /*
+   * checklist for PRs
+   */
   poppins.couldYouPlease('poppins-pr-checklist');
-  poppins.couldYouPlease('poppins-check-cla');
-  poppins.couldYouPlease('poppins-check-commit');
+  //poppins.couldYouPlease('poppins-check-commit');
+
+  poppins.plugins.prChecklist.greeting = "Thanks for the PR! Please check the items below to help " +
+    "us merge this faster. See the [contributing docs]" +
+    "(https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#contributing-to-angularjs) " +
+    "for more information.";
+
+  poppins.plugins.prChecklist.checks.push({
+    message: "Uses the issue template",
+    condition: function (issue) {
+      return '[#' + issue.number +
+        '](http://kent.doddsfamily.us/issue-template/#/angular/angular.js/issue/' +
+        issue.number + ')';
+    }
+  });
+
+  poppins.plugins.prChecklist.closing = "If you need to make changes to your pull request, you can update the commit with `git commit --amend`.\n" +
+                                        "Then, update the pull request with `git push -f`.\n\n" +
+                                        "Thanks again for your help!";
+
+  /*
+   * Pinned message for issues
+   */
+  poppins.couldYouPlease('poppins-pin');
+
+  poppins.plugins.pin.message = function (issue) {
+    return "Thanks for the contribution! If you haven't already, please use this " +
+      "[issue template](http://kent.doddsfamily.us/issue-template/#/angular/angular.js/issue/" +
+      issue.number + ")";
+  };
 
   poppins.config = {
     // Github repo to watch
@@ -17,10 +49,7 @@ module.exports = function (poppins) {
     login: require('./credentials'),
 
     // port for poppins to listen on and URL for Github to ping
-    hook: {
-      url: 'http://example.com:1234',
-      port: 1234
-    }
+    hook: require('./hook')
   };
 
 };
