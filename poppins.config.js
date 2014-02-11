@@ -15,7 +15,7 @@ module.exports = function (poppins) {
     message: "Uses the issue template",
     condition: function (issue) {
       return '[#' + issue.number +
-        '](http://kent.doddsfamily.us/issue-template/#/angular/angular.js/issue/' +
+        '](http://issuetemplate.com/#/angular/angular.js/issue/' +
         issue.number + ')';
     }
   });
@@ -30,9 +30,9 @@ module.exports = function (poppins) {
   poppins.couldYouPlease('poppins-pin');
 
   poppins.plugins.pin.message = function (issue) {
-    return "Thanks for the contribution! If you haven't already, please use this " +
-      "[issue template](http://kent.doddsfamily.us/issue-template/#/angular/angular.js/issue/" +
-      issue.number + ")";
+    return "Thanks for the opening this issue! If you haven't already, please use this " +
+      "[issue template](http://issuetemplate.com/#/angular/angular.js/issue/" +
+      issue.number + "). This helps us resolve issues faster.";
   };
 
   poppins.config = {
