@@ -1,6 +1,6 @@
 {
   "name": "angular-poppins",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Poppins configs for AngularJS",
   "main": "poppins.config.js",
   "scripts": {
@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/btford/angular-poppins",
   "dependencies": {
-    "poppins-check-cla": "~0.0.1",
-    "poppins-check-commit": "~0.0.1",
-    "poppins-pr-checklist": "~0.0.1"
+    "poppins-pin": "~0.0.1",
+    "poppins-check-commit": "~0.1.0",
+    "poppins-pr-checklist": "~0.1.0"
   }
 }
