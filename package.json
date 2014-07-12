@@ -19,6 +19,8 @@
   "dependencies": {
     "poppins-pin": "~0.0.1",
     "poppins-check-commit": "~0.1.0",
-    "poppins-pr-checklist": "~0.1.0"
+    "poppins-pr-checklist": "~0.1.0",
+    "poppins-prioritize": "^0.0.3",
+    "poppins-label": "0.0.3"
   }
 }

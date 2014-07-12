@@ -4,7 +4,13 @@ module.exports = function (poppins) {
    * checklist for PRs
    */
   poppins.couldYouPlease('poppins-pr-checklist');
-  //poppins.couldYouPlease('poppins-check-commit');
+  poppins.couldYouPlease('poppins-prioritize');
+  poppins.couldYouPlease('poppins-label');
+
+  poppins.plugins.labels = {
+    'gh: issue': function (issue) { return !issue.pull_request; },
+    'gh: PR': function (issue) { return !!issue.pull_request; }
+  };
 
   poppins.plugins.prChecklist.greeting = "Thanks for the PR! Please check the items below to help " +
     "us merge this faster. See the [contributing docs]" +
@@ -30,9 +36,9 @@ module.exports = function (poppins) {
   poppins.couldYouPlease('poppins-pin');
 
   poppins.plugins.pin.message = function (issue) {
-    return "Thanks for the opening this issue! If you haven't already, please use this " +
+    return "Thanks for the contribution! If you haven't already, please use this " +
       "[issue template](http://issuetemplate.com/#/angular/angular.js/issue/" +
-      issue.number + "). This helps us resolve issues faster.";
+      issue.number + ")";
   };
 
   poppins.config = {
